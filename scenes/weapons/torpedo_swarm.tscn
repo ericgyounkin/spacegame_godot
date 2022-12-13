@@ -1,0 +1,329 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scripts/torpedo_swarm.gd" type="Script" id=1]
+[ext_resource path="res://scenes/weapons/torpedo1.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.0402176, -0.234448, 0, 0, 0, 0, -11.0034, 32.2778, 0, 0, 0, 0, -36.7501, 35.1115, 0, 0, 0, 0, -68.1446, 24.0752, 0, 0, 0, 0, -87.5793, -5.60345, 0, 0, 0, 0, -93.2269, -63.9168, 0, 0, 0, 0, -83.9051, -167.999, 0, 0, 0, 0, -58.8836, -331.497, 0, 0, 0, 0, -17.7028, -563.438, 0, 0, 0, 0, 47.6226, -889.165, 0, 0, 0, 0, 869.752, -5853.71 )
+}
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.0160522, -3.2229, 0, 0, 0, 0, 15.134, 41.1554, 0, 0, 0, 0, 29.6494, 48.7615, 0, 0, 0, 0, 50.1038, 44.391, 0, 0, 0, 0, 81.3974, 12.5729, 0, 0, 0, 0, 89.9637, -30.7834, 0, 0, 0, 0, 79.8239, -69.9441, 0, 0, 0, 0, 20.1312, -371.558, 0, 0, 0, 0, -44.9389, -769.345, 0, 0, 0, 0, -92.8204, -1362.34, 0, 0, 0, 0, -626.704, -7780.84 )
+}
+
+[sub_resource type="Curve2D" id=3]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.362793, 0.244751, 0, 0, 0, 0, -8.53848, 41.9991, 0, 0, 0, 0, -18.4661, 47.5469, 0, 0, 0, 0, -37.7373, 49.2988, 0, 0, 0, 0, -72.776, 41.4152, 0, 0, 0, 0, -92.6312, 15.7202, 0, 0, 0, 0, -96.1351, -16.3986, 0, 0, 0, 0, -93.2151, -67.7886, 0, 0, 0, 0, -86.4995, -115.967, 0, 0, 0, 0, -40.3608, -374.289, 0, 0, 0, 0, -19.9553, -506.245, 0, 0, 0, 0, 3.17102, -578.345, 0, 0, 0, 0, 72.55, -793.283, 0, 0, 0, 0, 90.2349, -899.393, 0, 0, 0, 0, 139.208, -1054.47, 0, 0, 0, 0, 231.714, -1284.38, 0, 0, 0, 0, 459.262, -2150.3, 0, 0, 0, 0, 1710.18, -7197.75 )
+}
+
+[sub_resource type="Curve2D" id=4]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.371918, 0.829346, 0, 0, 0, 0, 16.481, 43.4458, 0, 0, 0, 0, 40.6949, 53.7124, 0, 0, 0, 0, 67.2333, 42.2834, 0, 0, 0, 0, 73.432, 13.4205, 0, 0, 0, 0, 73.432, -26.6777, 0, 0, 0, 0, 70.3326, -64.645, 0, 0, 0, 0, 44.5281, -331.313, 0, 0, 0, 0, -5.80902, -775.753, 0, 0, 0, 0, -28.6066, -1494.19, 0, 0, 0, 0, 151.037, -8034.36 )
+}
+
+[sub_resource type="Curve2D" id=5]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.290405, 0.880371, 0, 0, 0, 0, 7.00931, 40.2988, 0, 0, 0, 0, 15.769, 54.8982, 0, 0, 0, 0, 42.3399, 71.2495, 0, 0, 0, 0, 72.4147, 60.1541, 0, 0, 0, 0, 100.738, 37.9629, 0, 0, 0, 0, 108.621, 2.63232, 0, 0, 0, 0, 105.993, -37.0781, 0, 0, 0, 0, 97.2338, -89.6361, 0, 0, 0, 0, 88.4741, -136.062, 0, 0, 0, 0, 46.5978, -338.543, 0, 0, 0, 0, 41.1564, -526.274, 0, 0, 0, 0, 19.3904, -739.853, 0, 0, 0, 0, -2.37561, -956.152, 0, 0, 0, 0, -7.81702, -1175.17, 0, 0, 0, 0, -17.0433, -1928.11, 0, 0, 0, 0, 1.64261, -2180.29, 0, 0, 0, 0, 543.991, -7489.3 )
+}
+
+[sub_resource type="Curve2D" id=6]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.00436401, 5.57324, 0, 0, 0, 0, -14.1618, 51.9351, 0, 0, 0, 0, -32.8353, 56.0132, 0, 0, 0, 0, -56.8748, 48.2861, 0, 0, 0, 0, -68.6799, 24.4614, 0, 0, 0, 0, -74.9044, -7.94897, 0, 0, 0, 0, -78.9826, -67.8331, 0, 0, 0, 0, -75.5483, -113.551, 0, 0, 0, 0, -32.8058, -360.412, 0, 0, 0, 0, 5.97137, -584.409, 0, 0, 0, 0, 94.7355, -1111.94, 0, 0, 0, 0, 207.593, -1756.55, 0, 0, 0, 0, 1013, -7032.96 )
+}
+
+[sub_resource type="Curve2D" id=7]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0.086853, 3.50659, 0, 0, 0, 0, 1.98947, 43.6993, 0, 0, 0, 0, 11.2647, 60.1094, 0, 0, 0, 0, 26.7234, 68.6711, 0, 0, 0, 0, 43.6091, 67.7197, 0, 0, 0, 0, 60.0191, 52.261, 0, 0, 0, 0, 68.3431, 26.1001, 0, 0, 0, 0, 70.7213, -4.81726, 0, 0, 0, 0, 65.727, -41.9182, 0, 0, 0, 0, 60.4948, -81.1595, 0, 0, 0, 0, 57.6409, -108.272, 0, 0, 0, 0, 54.5491, -126.109, 0, 0, 0, 0, 26.299, -282.347, 0, 0, 0, 0, -5.62201, -570.865, 0, 0, 0, 0, -51.0483, -1043.54, 0, 0, 0, 0, -102.978, -2123.29, 0, 0, 0, 0, -368.677, -7875.91 )
+}
+
+[sub_resource type="Curve2D" id=8]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.0500793, 3.1416, 0, 0, 0, 0, -10.2697, 52.4878, 0, 0, 0, 0, -35.6727, 66.5032, 0, 0, 0, 0, -48.5202, 62.7073, 0, 0, 0, 0, -63.9956, 56.2834, 0, 0, 0, 0, -76.5511, 46.9399, 0, 0, 0, 0, -85.3107, 29.1285, 0, 0, 0, 0, -90.2745, 1.38965, 0, 0, 0, 0, -92.6104, -38.9048, 0, 0, 0, 0, -90.2745, -86.4989, 0, 0, 0, 0, -64.0014, -314.001, 0, 0, 0, 0, -20.0015, -625, 0, 0, 0, 0, 20.9984, -933, 0, 0, 0, 0, 63.9984, -1252, 0, 0, 0, 0, 128.998, -1784, 0, 0, 0, 0, 791.172, -6703.39 )
+}
+
+[sub_resource type="Curve2D" id=9]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.231567, 4.46094, 0, 0, 0, 0, 10.9572, 41.5237, 0, 0, 0, 0, 34.8995, 70.1506, 0, 0, 0, 0, 72.1843, 70.1506, 0, 0, 0, 0, 87.8547, 22.0587, 0, 0, 0, 0, 86.2337, -66.5602, 0, 0, 0, 0, 54.3525, -206.513, 0, 0, 0, 0, 5.89832, -758.208, 0, 0, 0, 0, -61.8183, -1802.36, 0, 0, 0, 0, -292.621, -7559.02 )
+}
+
+[sub_resource type="Curve2D" id=10]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.278748, 6.81421, 0, 0, 0, 0, -5.12152, 49.4307, 0, 0, 0, 0, -8.60831, 55.4355, 0, 0, 0, 0, -22.3618, 63.1841, 0, 0, 0, 0, -35.3405, 62.7966, 0, 0, 0, 0, -51.9996, 57.5664, 0, 0, 0, 0, -60.5229, 44.5879, 0, 0, 0, 0, -62.8474, 23.0859, 0, 0, 0, 0, -64.9783, -2.29028, 0, 0, 0, 0, -65.9468, -41.8074, 0, 0, 0, 0, -66.3342, -68.1521, 0, 0, 0, 0, -58.9453, -214.703, 0, 0, 0, 0, -40.5641, -574.066, 0, 0, 0, 0, 17.2566, -1599.53, 0, 0, 0, 0, 645.398, -6741.42 )
+}
+
+[node name="torpedo_swarm" type="Node"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+speed = 700
+torpedo_count = 20
+
+[node name="path1" type="Path2D" parent="." index="0"]
+
+position = Vector2( 396.205, 2000 )
+scale = Vector2( 1.05247, 1.17222 )
+curve = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path1" index="0"]
+
+position = Vector2( -0.0402176, -0.234448 )
+rotation = 1.89602
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+
+[node name="torpedo1" parent="path1/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+
+[node name="path2" type="Path2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 406.338, 2000 )
+curve = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path2" index="0"]
+
+position = Vector2( 0.0160522, -3.2229 )
+rotation = 1.24247
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="torpedo1" parent="path2/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+
+[node name="path3" type="Path2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 400, 2000 )
+curve = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path3" index="0"]
+
+position = Vector2( -0.362793, 0.244751 )
+rotation = 1.76415
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="torpedo1" parent="path3/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+
+[node name="path4" type="Path2D" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 400, 2000 )
+curve = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path4" index="0"]
+
+position = Vector2( -0.371918, 0.829346 )
+rotation = 1.19421
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="torpedo1" parent="path4/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+
+[node name="path5" type="Path2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 400, 2000 )
+curve = SubResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path5" index="0"]
+
+position = Vector2( -0.290405, 0.880371 )
+rotation = 1.38769
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="torpedo1" parent="path5/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+
+[node name="path6" type="Path2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 400, 2000 )
+curve = SubResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path6" index="0"]
+
+position = Vector2( 0.00436401, 5.57324 )
+rotation = 1.86734
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="torpedo1" parent="path6/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="path7" type="Path2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 400, 2000 )
+curve = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path7" index="0"]
+
+position = Vector2( 0.086853, 3.50659 )
+rotation = 1.52349
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="torpedo1" parent="path7/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="path8" type="Path2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 400, 2000 )
+curve = SubResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path8" index="0"]
+
+position = Vector2( -0.0500793, 3.1416 )
+rotation = 1.77501
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="torpedo1" parent="path8/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="path9" type="Path2D" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( 400, 2000 )
+curve = SubResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path9" index="0"]
+
+position = Vector2( -0.231567, 4.46094 )
+rotation = 1.27761
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="torpedo1" parent="path9/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="path10" type="Path2D" parent="." index="9"]
+
+editor/display_folded = true
+position = Vector2( 400, 2000 )
+curve = SubResource( 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="follow" type="PathFollow2D" parent="path10" index="0"]
+
+position = Vector2( -0.278748, 6.81421 )
+rotation = 1.68395
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="torpedo1" parent="path10/follow" index="0" instance=ExtResource( 2 )]
+
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+

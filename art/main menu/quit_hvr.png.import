@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/quit_hvr.png-3e2a82a727077f538423f46e7bcb9a00.stex"
+
+[deps]
+
+source_file="res://art/main menu/quit_hvr.png"
+source_md5="eef0199310daf14c913f46fd3f49b4ea"
+
+dest_files=[ "res://.import/quit_hvr.png-3e2a82a727077f538423f46e7bcb9a00.stex" ]
+dest_md5="9859c0e53c7b36d006830032aceee0ef"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

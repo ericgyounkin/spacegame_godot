@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/enemies/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/spacesnail.gd" type="Script" id=2]
+[ext_resource path="res://scenes/weapons/spacesnailstrikemaster.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/enemies/spacesnail.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 101.735
+height = 66.9154
+
+[node name="spacesnail" instance=ExtResource( 1 )]
+
+position = Vector2( 0, 0 )
+script = ExtResource( 2 )
+weapon1 = ExtResource( 3 )
+weapon2 = ExtResource( 3 )
+
+[node name="weapon1_muzzle" parent="." index="0"]
+
+position = Vector2( -120, -180 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="weapon2_muzzle" parent="." index="1"]
+
+position = Vector2( 50, -180 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="weapon1_timer" parent="weapon1" index="1"]
+
+wait_time = 2.0
+
+[node name="weapon2_timer" parent="weapon2" index="1"]
+
+wait_time = 2.0
+
+[node name="Sprite" type="Sprite" parent="." index="7"]
+
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="8"]
+
+shape = SubResource( 1 )
+
+[node name="boosttimer_wait" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = true
+
+[node name="boosttimer_boost" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 0.7
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="boosttimer_wait" to="." method="_on_boosttimer_wait_timeout"]
+
+[connection signal="timeout" from="boosttimer_boost" to="." method="_on_boosttimer_boost_timeout"]
+
+

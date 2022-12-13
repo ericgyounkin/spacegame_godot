@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/manticore1.png-197cc3ee2ae886eb59248dd5607da2f7.stex"
+
+[deps]
+
+source_file="res://art/main menu/manticore1.png"
+source_md5="2bd2e3ca74875aeb6cbacab254cc8f70"
+
+dest_files=[ "res://.import/manticore1.png-197cc3ee2ae886eb59248dd5607da2f7.stex" ]
+dest_md5="6d334e6f80abc66e01a3f14072014d05"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

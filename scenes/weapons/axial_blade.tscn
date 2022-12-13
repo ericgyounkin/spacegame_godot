@@ -1,0 +1,166 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scripts/axial_blade.gd" type="Script" id=1]
+[ext_resource path="res://art/weapons/axial_blade.png" type="Texture" id=2]
+
+[sub_resource type="SegmentShape2D" id=1]
+
+custom_solver_bias = 0.0
+a = Vector2( 5.71734, -34.2694 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="SegmentShape2D" id=2]
+
+custom_solver_bias = 0.0
+a = Vector2( 22.938, -13.0649 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="SegmentShape2D" id=3]
+
+custom_solver_bias = 0.0
+a = Vector2( 32.1909, -3.04092 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="SegmentShape2D" id=4]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 0 )
+b = Vector2( 34.7611, 0.428913 )
+
+[sub_resource type="SegmentShape2D" id=5]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 0 )
+b = Vector2( 23.9661, 5.18387 )
+
+[sub_resource type="SegmentShape2D" id=6]
+
+custom_solver_bias = 0.0
+a = Vector2( -24.2261, -2.01282 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="SegmentShape2D" id=7]
+
+custom_solver_bias = 0.0
+a = Vector2( -33.0934, 7.62561 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="SegmentShape2D" id=8]
+
+custom_solver_bias = 0.0
+a = Vector2( -28.2099, 15.0793 )
+b = Vector2( 0, 10 )
+
+[sub_resource type="SegmentShape2D" id=9]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 0 )
+b = Vector2( -26.4108, 17.007 )
+
+[sub_resource type="SegmentShape2D" id=10]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 0 )
+b = Vector2( -13.9451, 20.4768 )
+
+[sub_resource type="SegmentShape2D" id=11]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 0 )
+b = Vector2( -3.02151, 23.8182 )
+
+[sub_resource type="SegmentShape2D" id=12]
+
+custom_solver_bias = 0.0
+a = Vector2( 0, 0 )
+b = Vector2( 5.84585, 21.5049 )
+
+[node name="axial_blade" type="Area2D"]
+
+scale = Vector2( 0.5, 0.5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -57.9591, 34.4413 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( -51.0194, -8.2248 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( -28.4012, -31.614 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." index="4"]
+
+position = Vector2( 5.1405, -33.7988 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." index="5"]
+
+position = Vector2( 40.7384, -32.8992 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="." index="6"]
+
+position = Vector2( 64.3847, -37.7826 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="." index="7"]
+
+position = Vector2( 40.0959, -49.8628 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="." index="8"]
+
+position = Vector2( 7.06818, -52.176 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="." index="9"]
+
+position = Vector2( -19.6624, -37.6541 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="." index="10"]
+
+position = Vector2( -46.5215, -20.6905 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="." index="11"]
+
+position = Vector2( -60.7864, -0.257027 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="." index="12"]
+
+position = Vector2( -63.7421, 22.1041 )
+shape = SubResource( 12 )
+
+[node name="lifetime" type="Timer" parent="." index="13"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = false
+
+[connection signal="body_entered" from="." to="." method="_on_axial_blade_body_entered"]
+
+[connection signal="timeout" from="lifetime" to="." method="_on_lifetime_timeout"]
+
+

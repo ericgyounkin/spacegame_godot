@@ -1,0 +1,434 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/ingamemenu.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+
+font_path = "res://art/font/Comfortaa-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = true
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="ingamemenu" type="Control"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Focus", "Hint", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="mainhbox" type="HBoxContainer" parent="." index="0"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1366.0
+margin_bottom = 768.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 0
+alignment = 0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Margin", "Pause", "Rect", "Size Flags", "Theme", "custom_constants" ]
+
+[node name="spacer1" type="ColorRect" parent="mainhbox" index="0"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 350.0
+margin_bottom = 768.0
+rect_min_size = Vector2( 350, 768 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.196078 )
+_sections_unfolded = [ "Focus", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="mainhbox" index="1"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 350.0
+margin_right = 1016.0
+margin_bottom = 768.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 0
+alignment = 0
+_sections_unfolded = [ "Grow Direction", "Margin", "Pause", "Rect", "Size Flags", "Theme", "custom_constants" ]
+
+[node name="Label3" type="ColorRect" parent="mainhbox/VBoxContainer" index="0"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 666.0
+margin_bottom = 196.0
+rect_min_size = Vector2( 0, 196 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+color = Color( 0, 0, 0, 0.196078 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="ColorRect2" type="ColorRect" parent="mainhbox/VBoxContainer" index="1"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 196.0
+margin_right = 666.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 666, 368 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="secondhbox" type="HBoxContainer" parent="mainhbox/VBoxContainer/ColorRect2" index="0"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 666.0
+margin_bottom = 368.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="Label" type="Label" parent="mainhbox/VBoxContainer/ColorRect2/secondhbox" index="0"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 177.0
+margin_right = 222.0
+margin_bottom = 191.0
+rect_min_size = Vector2( 222, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="buttons" type="VBoxContainer" parent="mainhbox/VBoxContainer/ColorRect2/secondhbox" index="1"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 226.0
+margin_right = 438.0
+margin_bottom = 368.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="spacer" type="Label" parent="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons" index="0"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 212.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 0, 110 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="resume" type="Button" parent="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons" index="1"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 114.0
+margin_right = 212.0
+margin_bottom = 143.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.842651, 0.848602, 0.914063, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Resume"
+flat = true
+align = 1
+_sections_unfolded = [ "Pause", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="options" type="Button" parent="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons" index="2"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 147.0
+margin_right = 212.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.842651, 0.848602, 0.914063, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Options"
+flat = true
+align = 1
+_sections_unfolded = [ "Pause", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="save" type="Button" parent="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons" index="3"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 180.0
+margin_right = 212.0
+margin_bottom = 209.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.842651, 0.848602, 0.914063, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Save"
+flat = true
+align = 1
+_sections_unfolded = [ "Pause", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="quit_main_menu" type="Button" parent="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons" index="4"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 213.0
+margin_right = 212.0
+margin_bottom = 242.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.842651, 0.848602, 0.914063, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit to Main Menu"
+flat = true
+align = 1
+_sections_unfolded = [ "Pause", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="quit_desktop" type="Button" parent="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons" index="5"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 246.0
+margin_right = 212.0
+margin_bottom = 275.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.842651, 0.848602, 0.914063, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit to Desktop"
+flat = true
+align = 1
+_sections_unfolded = [ "Pause", "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Label2" type="ColorRect" parent="mainhbox/VBoxContainer" index="2"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 564.0
+margin_right = 666.0
+margin_bottom = 764.0
+rect_min_size = Vector2( 222, 200 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+color = Color( 0, 0, 0, 0.196078 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="spacer2" type="ColorRect" parent="mainhbox" index="2"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1016.0
+margin_right = 1366.0
+margin_bottom = 768.0
+rect_min_size = Vector2( 350, 768 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.196078 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="AcceptDialog" type="AcceptDialog" parent="." index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 535.0
+margin_top = 366.0
+margin_right = 845.0
+margin_bottom = 424.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+window_title = "Alert!"
+resizable = false
+dialog_text = "Are you sure you want to overwrite your save?"
+dialog_hide_on_ok = true
+_sections_unfolded = [ "Dialog", "Popup", "Rect" ]
+
+[connection signal="pressed" from="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons/resume" to="." method="_on_resume_pressed"]
+
+[connection signal="pressed" from="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons/options" to="." method="_on_options_pressed"]
+
+[connection signal="pressed" from="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons/save" to="." method="_on_save_pressed"]
+
+[connection signal="pressed" from="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons/quit_main_menu" to="." method="_on_quit_main_menu_pressed"]
+
+[connection signal="pressed" from="mainhbox/VBoxContainer/ColorRect2/secondhbox/buttons/quit_desktop" to="." method="_on_quit_desktop_pressed"]
+
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
+
+

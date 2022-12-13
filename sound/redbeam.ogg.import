@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/redbeam.ogg-4dde07ce93f8c7a435a37e4e5564eb60.oggstr"
+
+[deps]
+
+source_file="res://sound/redbeam.ogg"
+source_md5="dcd8f9a2d6e9be7cea430a9a1943c998"
+
+dest_files=[ "res://.import/redbeam.ogg-4dde07ce93f8c7a435a37e4e5564eb60.oggstr" ]
+dest_md5="429a7673f26db4d6baaf822d1142314c"
+
+[params]
+
+loop=true
+loop_offset=0

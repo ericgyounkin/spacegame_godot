@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/LRM.gd" type="Script" id=1]
+[ext_resource path="res://art/weapons/longrangemissle.png" type="Texture" id=2]
+[ext_resource path="res://art/weapons/longrangemissle_activate.png" type="Texture" id=3]
+[ext_resource path="res://scenes/animations/trail.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 2.07895
+height = 1.28377
+
+[node name="lrm" type="Area2D"]
+
+z_index = 2
+z_as_relative = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
+speed = 120
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "default"
+_sections_unfolded = [ "Animation" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 1, 0 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="trail" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 0, 3 )
+width = 1.0
+default_color = Color( 0.371094, 0.00289917, 0.00289917, 1 )
+_sections_unfolded = [ "Border", "Capping", "Transform" ]
+target_path = NodePath("..")
+trail_length = 3
+
+[node name="lifetime" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = false
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_lrm_area_entered"]
+
+

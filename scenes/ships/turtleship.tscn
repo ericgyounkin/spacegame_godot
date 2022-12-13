@@ -1,0 +1,181 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/turtleship.gd" type="Script" id=1]
+[ext_resource path="res://art/ships/turtleship2.png" type="Texture" id=2]
+[ext_resource path="res://art/animations/thrust1.png" type="Texture" id=3]
+[ext_resource path="res://art/animations/thrust2.png" type="Texture" id=4]
+[ext_resource path="res://art/animations/thrust3.png" type="Texture" id=5]
+[ext_resource path="res://art/animations/thrust4.png" type="Texture" id=6]
+[ext_resource path="res://scenes/misc/customcamera.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 42.1559
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="turtleship" type="KinematicBody2D"]
+
+input_pickable = true
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0, 5 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="exhaust" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( 0, 23 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 3
+_sections_unfolded = [ "Transform" ]
+
+[node name="weapon1_muzzle" type="Position2D" parent="." index="3"]
+
+position = Vector2( -0.142395, -54.6991 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="weapon2_muzzle" type="Position2D" parent="." index="4"]
+
+position = Vector2( 28.7023, -41.7088 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="weapon3_muzzle" type="Position2D" parent="." index="5"]
+
+position = Vector2( -28.7023, -41.8511 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="customcamera" parent="." index="6" instance=ExtResource( 7 )]
+
+current = true
+zoom = Vector2( 3, 3 )
+limit_left = -3000
+limit_top = -2000
+limit_right = 3000
+limit_bottom = 2000
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+_sections_unfolded = [ "Drag Margin", "Limit" ]
+
+[node name="weapon_lmb" type="Node" parent="." index="7"]
+
+[node name="weapon_container" type="Node" parent="weapon_lmb" index="0"]
+
+[node name="weapon_lmb_timer" type="Timer" parent="weapon_lmb" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="weapon_rmb" type="Node" parent="." index="8"]
+
+[node name="weapon_container" type="Node" parent="weapon_rmb" index="0"]
+
+[node name="weapon_rmb_timer" type="Timer" parent="weapon_rmb" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="weapon1" type="Node" parent="." index="9"]
+
+[node name="weapon_container" type="Node" parent="weapon1" index="0"]
+
+[node name="weapon_1_timer" type="Timer" parent="weapon1" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="weapon2" type="Node" parent="." index="10"]
+
+[node name="weapon_container" type="Node" parent="weapon2" index="0"]
+
+[node name="weapon_2_timer" type="Timer" parent="weapon2" index="1"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="weapon3" type="Node" parent="." index="11"]
+
+[node name="weapon_container" type="Node" parent="weapon3" index="0"]
+
+[node name="weapon_3_timer" type="Timer" parent="weapon3" index="1"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="weapon4" type="Node" parent="." index="12"]
+
+[node name="weapon_container" type="Node" parent="weapon4" index="0"]
+
+[node name="weapon_4_timer" type="Timer" parent="weapon4" index="1"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="weapon5" type="Node" parent="." index="13"]
+
+[node name="weapon_container" type="Node" parent="weapon5" index="0"]
+
+[node name="weapon_5_timer" type="Timer" parent="weapon5" index="1"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="transition_timer" type="Timer" parent="." index="14"]
+
+pause_mode = 2
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+_sections_unfolded = [ "Pause" ]
+
+[connection signal="timeout" from="weapon_lmb/weapon_lmb_timer" to="." method="_on_weapon_lmb_timer_timeout"]
+
+[connection signal="timeout" from="weapon_rmb/weapon_rmb_timer" to="." method="_on_weapon_rmb_timer_timeout"]
+
+[connection signal="timeout" from="weapon1/weapon_1_timer" to="." method="_on_weapon_1_timer_timeout"]
+
+[connection signal="timeout" from="weapon2/weapon_2_timer" to="." method="_on_weapon_2_timer_timeout"]
+
+[connection signal="timeout" from="weapon3/weapon_3_timer" to="." method="_on_weapon_3_timer_timeout"]
+
+[connection signal="timeout" from="weapon4/weapon_4_timer" to="." method="_on_weapon_4_timer_timeout"]
+
+[connection signal="timeout" from="weapon5/weapon_5_timer" to="." method="_on_weapon_5_timer_timeout"]
+
+[connection signal="timeout" from="transition_timer" to="." method="_on_transition_timer_timeout"]
+
+

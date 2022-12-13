@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/battletheme.ogg-a32ba47c4e633c4e5da255cb4bc06745.oggstr"
+
+[deps]
+
+source_file="res://sound/battletheme.ogg"
+source_md5="2f0fe4d7d78bc7075fc126aa469106d0"
+
+dest_files=[ "res://.import/battletheme.ogg-a32ba47c4e633c4e5da255cb4bc06745.oggstr" ]
+dest_md5="118d0dee9ec53b357d621f80bd8c1e94"
+
+[params]
+
+loop=true
+loop_offset=0

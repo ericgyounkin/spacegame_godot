@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stationexplosionpt1.ogg-04db7df3cb5edef3290b91f1290f07e7.oggstr"
+
+[deps]
+
+source_file="res://sound/stationexplosionpt1.ogg"
+source_md5="fbb98c830894702472f6b5eb4f509f53"
+
+dest_files=[ "res://.import/stationexplosionpt1.ogg-04db7df3cb5edef3290b91f1290f07e7.oggstr" ]
+dest_md5="38cfad8fc1abd7899a97619598cf59b2"
+
+[params]
+
+loop=true
+loop_offset=0

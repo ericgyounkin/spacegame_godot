@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/rescue2_head.gd" type="Script" id=1]
+[ext_resource path="res://scenes/weapons/purple_breath.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art/enemies/rescue2snakehead.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 355.221, 177.446 )
+
+[node name="rescue2_head" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
+spray = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="spray_muzzle" type="Position2D" parent="." index="2"]
+
+position = Vector2( 634.883, 0.252045 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="spray" type="Position2D" parent="." index="3"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="spray_container" type="Node" parent="spray" index="0"]
+
+[node name="spray_timer" type="Timer" parent="spray" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+

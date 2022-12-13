@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/fwd_deflector.gd" type="Script" id=1]
+[ext_resource path="res://art/weapons/fwddeflector1.png" type="Texture" id=2]
+[ext_resource path="res://art/weapons/fwddeflector2.png" type="Texture" id=3]
+[ext_resource path="res://art/weapons/fwddeflector3.png" type="Texture" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -73, 24, -68, 13, -50, -5, -25, -18, 0, -26, 25, -18, 50, -5, 68, 13, 73, 24 )
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="fwd_deflector" type="Area2D"]
+
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+frames = SubResource( 1 )
+animation = "default"
+frame = 2
+playing = true
+
+[node name="lifetime" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 2.5
+one_shot = false
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_fwd_deflector_area_entered"]
+
+[connection signal="timeout" from="lifetime" to="." method="_on_lifetime_timeout"]
+
+

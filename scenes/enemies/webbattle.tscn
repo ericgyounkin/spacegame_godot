@@ -1,0 +1,146 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/webbattle.gd" type="Script" id=1]
+[ext_resource path="res://art/objects/web.png" type="Texture" id=2]
+[ext_resource path="res://art/objects/wreckage1.png" type="Texture" id=3]
+[ext_resource path="res://art/objects/wreckage2.png" type="Texture" id=4]
+[ext_resource path="res://art/objects/wreckage3.png" type="Texture" id=5]
+[ext_resource path="res://art/objects/wreckage4.png" type="Texture" id=6]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -170, -290, 190, -120, 260, 200, -220, 250 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="webbattle" type="Area2D" index="0"]
+
+position = Vector2( 100, 100 )
+scale = Vector2( 3, 3 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -40, 0 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -65, 20 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="wreck1" type="StaticBody2D" parent="." index="2"]
+
+position = Vector2( -244.285, -215.546 )
+rotation = 0.349066
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="wreck1" index="0"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wreck1" index="1"]
+
+shape = SubResource( 2 )
+disabled = true
+
+[node name="wreck2" type="StaticBody2D" parent="." index="3"]
+
+position = Vector2( 179.622, 172.437 )
+rotation = 0.0872665
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="wreck2" index="0"]
+
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wreck2" index="1"]
+
+shape = SubResource( 2 )
+disabled = true
+
+[node name="wreck3" type="StaticBody2D" parent="." index="4"]
+
+position = Vector2( -281.407, 210.756 )
+rotation = 0.0872665
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="wreck3" index="0"]
+
+position = Vector2( 16.5364, -2.32605 )
+rotation = -0.174533
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wreck3" index="1"]
+
+shape = SubResource( 2 )
+disabled = true
+
+[node name="wreck4" type="StaticBody2D" parent="." index="5"]
+
+position = Vector2( 70.4877, -85.6176 )
+rotation = 0.0872665
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="wreck4" index="0"]
+
+position = Vector2( 16.5364, -2.32605 )
+rotation = -0.174533
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wreck4" index="1"]
+
+shape = SubResource( 2 )
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_webbattle_body_entered"]
+
+[connection signal="body_exited" from="." to="." method="_on_webbattle_body_exited"]
+
+

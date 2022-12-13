@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/planet1.gd" type="Script" id=1]
+[ext_resource path="res://art/background/planet1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/objects/planet1_moon.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 655.532
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1.24963, -0.373535, 0, 0, 0, 0, 681.366, -85.0827, 0, 0, 0, 0, 720.463, -96.4858, 0, 0, 0, 0, 744.084, -111.147, 0, 0, 0, 0, 748.971, -129.881, 0, 0, 0, 0, 740.826, -144.542, 0, 0, 0, 0, 722.906, -155.131, 0, 0, 0, 0, 700.915, -156.76, 0, 0, 0, 0, 677.294, -159.203, 0, 0, 0, 0, -687.827, 7.77158, 0, 0, 0, 0, -718.299, 18.715, 0, 0, 0, 0, -744.471, 32.2526, 0, 0, 0, 0, -761.619, 49.4002, 0, 0, 0, 0, -767.034, 62.9378, 0, 0, 0, 0, -760.716, 74.6703, 0, 0, 0, 0, -748.984, 81.8904, 0, 0, 0, 0, -721.909, 92.7205, 0, 0, 0, 0, -676.783, 98.1355, 0, 0, 0, 0, -603.68, 84.5979, 0, 0, 0, 0, -334.734, 52.1077, 0, 0, 0, 0, -0.806885, -0.237579 )
+}
+
+[node name="planet1" type="Area2D"]
+
+position = Vector2( 400, 500 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="planet" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="moonpath" type="Path2D" parent="." index="2"]
+
+curve = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="moonpath" index="0"]
+
+position = Vector2( 1.24963, -0.373535 )
+rotation = -0.123913
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="planet1_moon" parent="moonpath/PathFollow2D" index="0" instance=ExtResource( 3 )]
+
+rotation = 0.123913
+z_index = 1
+z_as_relative = false
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+

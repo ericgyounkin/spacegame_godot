@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/enemies/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/rescue1_eye.gd" type="Script" id=2]
+[ext_resource path="res://scenes/weapons/rescue1_eyeblast.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/objects/rescue1_eye.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 119.738, 47.935 )
+
+[node name="rescue1_eye" index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 0, 0 )
+script = ExtResource( 2 )
+weapon1 = ExtResource( 3 )
+
+[node name="weapon1_muzzle" parent="." index="0"]
+
+position = Vector2( -139.722, 7.28952 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="weapon1_timer" parent="weapon1" index="1"]
+
+wait_time = 2.0
+
+[node name="Sprite" type="Sprite" parent="." index="7"]
+
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="8"]
+
+position = Vector2( 2.39493, 7.78357 )
+shape = SubResource( 1 )
+disabled = true
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+

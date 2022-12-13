@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/newgame_hvr.png-46f70a64f63414b1c3b3c8817a7234ee.stex"
+
+[deps]
+
+source_file="res://art/main menu/newgame_hvr.png"
+source_md5="268519c72626eec65550cc122ded29ed"
+
+dest_files=[ "res://.import/newgame_hvr.png-46f70a64f63414b1c3b3c8817a7234ee.stex" ]
+dest_md5="a38fc3ce189a68b88ad9d7f1867fcac6"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

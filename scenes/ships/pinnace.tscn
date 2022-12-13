@@ -1,0 +1,143 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/pinnace.gd" type="Script" id=1]
+[ext_resource path="res://art/ships/pinnace.png" type="Texture" id=2]
+[ext_resource path="res://art/animations/thrust1.png" type="Texture" id=3]
+[ext_resource path="res://art/animations/thrust2.png" type="Texture" id=4]
+[ext_resource path="res://art/animations/thrust3.png" type="Texture" id=5]
+[ext_resource path="res://art/animations/thrust4.png" type="Texture" id=6]
+[ext_resource path="res://scenes/misc/customcamera.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 13.7678
+height = 24.5989
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="pinnace" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="exhaust" type="AnimatedSprite" parent="." index="2"]
+
+visible = false
+position = Vector2( -1, 24 )
+frames = SubResource( 2 )
+animation = "default"
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="weapon1_muzzle" type="Position2D" parent="." index="3"]
+
+position = Vector2( 0.128517, -40.4912 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="weapon2_muzzle" type="Position2D" parent="." index="4"]
+
+position = Vector2( -23.3592, -25 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="weapon3_muzzle" type="Position2D" parent="." index="5"]
+
+position = Vector2( 23, -25 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="auxmuzzle" type="Position2D" parent="." index="6"]
+
+[node name="weapon_lmb" type="Node" parent="." index="7"]
+
+[node name="weapon_container" type="Node" parent="weapon_lmb" index="0"]
+
+[node name="weapon_lmb_timer" type="Timer" parent="weapon_lmb" index="1"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="weapon1" type="Node" parent="." index="8"]
+
+[node name="weapon_container" type="Node" parent="weapon1" index="0"]
+
+[node name="weapon_1_timer" type="Timer" parent="weapon1" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="weapon2" type="Node" parent="." index="9"]
+
+[node name="weapon_container" type="Node" parent="weapon2" index="0"]
+
+[node name="weapon_2_timer" type="Timer" parent="weapon2" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="weapon3" type="Node" parent="." index="10"]
+
+[node name="weapon_container" type="Node" parent="weapon3" index="0"]
+
+[node name="weapon_3_timer" type="Timer" parent="weapon3" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="transition_timer" type="Timer" parent="." index="11"]
+
+pause_mode = 2
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+_sections_unfolded = [ "Pause" ]
+
+[node name="customcamera" parent="." index="12" instance=ExtResource( 7 )]
+
+current = true
+zoom = Vector2( 3, 3 )
+limit_left = -3000
+limit_top = -2000
+limit_right = 3000
+limit_bottom = 2000
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+_sections_unfolded = [ "Limit" ]
+
+[connection signal="timeout" from="weapon_lmb/weapon_lmb_timer" to="." method="_on_weapon_lmb_timer_timeout"]
+
+[connection signal="timeout" from="weapon1/weapon_1_timer" to="." method="_on_weapon_1_timer_timeout"]
+
+[connection signal="timeout" from="weapon2/weapon_2_timer" to="." method="_on_weapon_2_timer_timeout"]
+
+[connection signal="timeout" from="weapon3/weapon_3_timer" to="." method="_on_weapon_3_timer_timeout"]
+
+[connection signal="timeout" from="transition_timer" to="." method="_on_transition_timer_timeout"]
+
+

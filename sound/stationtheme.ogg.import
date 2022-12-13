@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stationtheme.ogg-c16723d776e62c7fc82cf835dfeaeebe.oggstr"
+
+[deps]
+
+source_file="res://sound/stationtheme.ogg"
+source_md5="768aec1f45f6dc0e1e26706caa29f455"
+
+dest_files=[ "res://.import/stationtheme.ogg-c16723d776e62c7fc82cf835dfeaeebe.oggstr" ]
+dest_md5="31fff05a9ce3b91abe3e68472e713f70"
+
+[params]
+
+loop=true
+loop_offset=0

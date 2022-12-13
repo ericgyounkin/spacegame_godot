@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/enemies/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/rescue1battle.gd" type="Script" id=2]
+[ext_resource path="res://art/objects/rescue1_background.png" type="Texture" id=3]
+[ext_resource path="res://scenes/enemies/rescue1_eye.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art/objects/rescue1_eyeclosed.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 600.316
+height = 392.722
+
+[node name="rescue1battle" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="7"]
+
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="8"]
+
+position = Vector2( -226.039, 401.109 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="rescue1_eye" parent="." index="9" instance=ExtResource( 4 )]
+
+position = Vector2( -362.838, 859.038 )
+weapon1 = null
+
+[node name="rescue1_eye2" parent="." index="10" instance=ExtResource( 4 )]
+
+position = Vector2( -98.285, 659.432 )
+weapon1 = null
+
+[node name="rescue1_eye3" parent="." index="11" instance=ExtResource( 4 )]
+
+position = Vector2( -93.5382, 365.896 )
+weapon1 = null
+
+[node name="rescue1_eye4" parent="." index="12" instance=ExtResource( 4 )]
+
+position = Vector2( -75.1311, 118.773 )
+weapon1 = null
+
+[node name="rescue1_eye5" parent="." index="13" instance=ExtResource( 4 )]
+
+position = Vector2( -387.492, -55.2785 )
+weapon1 = null
+
+[node name="eyeclosed1" type="Sprite" parent="." index="14"]
+
+visible = false
+position = Vector2( -362.43, 858.475 )
+texture = ExtResource( 5 )
+
+[node name="eyeclosed2" type="Sprite" parent="." index="15"]
+
+visible = false
+position = Vector2( -96.8707, 656.383 )
+texture = ExtResource( 5 )
+
+[node name="eyeclosed3" type="Sprite" parent="." index="16"]
+
+visible = false
+position = Vector2( -93.5304, 364.101 )
+texture = ExtResource( 5 )
+
+[node name="eyeclosed4" type="Sprite" parent="." index="17"]
+
+visible = false
+position = Vector2( -73.4883, 118.583 )
+texture = ExtResource( 5 )
+
+[node name="eyeclosed5" type="Sprite" parent="." index="18"]
+
+visible = false
+position = Vector2( -389.153, -56.7862 )
+texture = ExtResource( 5 )
+
+

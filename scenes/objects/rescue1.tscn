@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/rescue1.gd" type="Script" id=1]
+[ext_resource path="res://art/objects/wreckage5.png" type="Texture" id=2]
+[ext_resource path="res://scenes/enemies/zoomed_out_enemy_small.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 69.1335
+height = 263.723
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -88.6523, 9.74634, 0, 0, 0, 0, -25.4299, -34.023, 0, 0, 0, 0, 12.9358, -69.1466, 0, 0, 0, 0, 31.8485, -74.5502, 0, 0, 0, 0, 53.463, -74.5502, 0, 0, 0, 0, 69.1335, -63.2026, 0, 0, 0, 0, 84.804, -40.5074, 0, 0, 0, 0, 89.6673, -11.3278, 0, 0, 0, 0, 93.9902, 16.2307, 0, 0, 0, 0, 73.9968, 37.3048, 0, 0, 0, 0, 46.4383, 29.1994, 0, 0, 0, 0, 30.2274, -2.14163, 0, 0, 0, 0, 12.9358, -12.9489, 0, 0, 0, 0, -37.8582, 12.4482, 0, 0, 0, 0, -65.4167, 45.9507, 0, 0, 0, 0, -92.4349, 48.6525, 0, 0, 0, 0, -94.5963, 41.0874, 0, 0, 0, 0, -97.2981, 27.5783, 0, 0, 0, 0, -98.3788, 16.2307, 0, 0, 0, 0, -88.6523, 9.74634 )
+}
+
+[sub_resource type="Curve2D" id=3]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 58.8666, 74.0495, 0, 0, 0, 0, -11.3805, 33.5223, 0, 0, 0, 0, -45.9637, 18.9325, 0, 0, 0, 0, -69.1993, -7.54526, 0, 0, 0, 0, -59.4727, -47.5321, 0, 0, 0, 0, -30.2932, -76.1713, 0, 0, 0, 0, -4.35577, -94.0033, 0, 0, 0, 0, 32.3889, -106.972, 0, 0, 0, 0, 69.1335, -94.0033, 0, 0, 0, 0, 79.4004, -78.3327, 0, 0, 0, 0, 61.5685, -50.2339, 0, 0, 0, 0, 44.2768, -24.2965, 0, 0, 0, 0, 42.1154, 5.96381, 0, 0, 0, 0, 59.9474, 43.2488, 0, 0, 0, 0, 74.5371, 65.4037, 0, 0, 0, 0, 80.4811, 78.3724, 0, 0, 0, 0, 58.8666, 74.0495 )
+}
+
+[sub_resource type="Curve2D" id=4]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 116.145, 30.8205, 0, 0, 0, 0, 56.1648, 33.5223, 0, 0, 0, 0, -15.7034, 18.3922, 0, 0, 0, 0, -53.5288, 8.12527, 0, 0, 0, 0, -97.2981, -4.30307, 0, 0, 0, 0, -120.534, -34.5634, 0, 0, 0, 0, -122.155, -63.2026, 0, 0, 0, 0, -105.404, -75.6309, 0, 0, 0, 0, -67.0378, -88.5996, 0, 0, 0, 0, -31.9143, -91.8418, 0, 0, 0, 0, 17.7991, -89.14, 0, 0, 0, 0, 51.8419, -78.3327, 0, 0, 0, 0, 82.1022, -62.1219, 0, 0, 0, 0, 106.419, -38.8863, 0, 0, 0, 0, 123.71, -12.4085, 0, 0, 0, 0, 125.872, 6.50418, 0, 0, 0, 0, 123.71, 16.7711, 0, 0, 0, 0, 122.089, 18.9325, 0, 0, 0, 0, 116.145, 30.8205 )
+}
+
+[sub_resource type="Curve2D" id=5]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 128.573, 38.3856, 0, 0, 0, 0, 33.4696, 6.50418, 0, 0, 0, 0, -17.3245, -11.8681, 0, 0, 0, 0, -106.484, -36.7248, 0, 0, 0, 0, -129.72, -74.5502, 0, 0, 0, 0, -121.074, -110.754, 0, 0, 0, 0, -68.6589, -127.506, 0, 0, 0, 0, -5.97687, -123.723, 0, 0, 0, 0, 51.8419, -110.754, 0, 0, 0, 0, 80.4811, -101.568, 0, 0, 0, 0, 121.549, -64.2833, 0, 0, 0, 0, 111.282, -42.1284, 0, 0, 0, 0, 88.0462, -29.7001, 0, 0, 0, 0, 84.804, -5.92416, 0, 0, 0, 0, 105.878, 7.5849, 0, 0, 0, 0, 140.461, 22.7151, 0, 0, 0, 0, 151.269, 30.8205, 0, 0, 0, 0, 161.535, 55.6772, 0, 0, 0, 0, 153.97, 67.0248, 0, 0, 0, 0, 149.107, 68.1055, 0, 0, 0, 0, 138.84, 58.9193, 0, 0, 0, 0, 133.437, 48.6525, 0, 0, 0, 0, 128.573, 38.3856 )
+}
+
+[node name="rescue1" type="Area2D"]
+
+z_index = 3
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="small_enemy_path1" type="Path2D" parent="." index="2"]
+
+editor/display_folded = true
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="small_enemy_path1" index="0"]
+
+position = Vector2( -88.6523, 9.74634 )
+rotation = -0.605545
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="zoomed_out_enemy_small" parent="small_enemy_path1/PathFollow2D" index="0" instance=ExtResource( 3 )]
+
+[node name="small_enemy_path2" type="Path2D" parent="." index="3"]
+
+editor/display_folded = true
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="small_enemy_path2" index="0"]
+
+position = Vector2( 58.8666, 74.0495 )
+rotation = -2.61831
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="zoomed_out_enemy_small" parent="small_enemy_path2/PathFollow2D" index="0" instance=ExtResource( 3 )]
+
+[node name="small_enemy_path3" type="Path2D" parent="." index="4"]
+
+editor/display_folded = true
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="small_enemy_path3" index="0"]
+
+position = Vector2( 116.145, 30.8205 )
+rotation = 3.09658
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="zoomed_out_enemy_small" parent="small_enemy_path3/PathFollow2D" index="0" instance=ExtResource( 3 )]
+
+[node name="small_enemy_path4" type="Path2D" parent="." index="5"]
+
+editor/display_folded = true
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="small_enemy_path4" index="0"]
+
+position = Vector2( 128.573, 38.3856 )
+rotation = -2.81814
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="zoomed_out_enemy_small" parent="small_enemy_path4/PathFollow2D" index="0" instance=ExtResource( 3 )]
+
+

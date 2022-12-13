@@ -1,0 +1,114 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://scripts/character.gd" type="Script" id=1]
+[ext_resource path="res://art/player/player_facingfwd_stopped.png" type="Texture" id=2]
+[ext_resource path="res://art/player/player_walk_down1.png" type="Texture" id=3]
+[ext_resource path="res://art/player/player_walk_down2.png" type="Texture" id=4]
+[ext_resource path="res://art/player/player_walk_down3.png" type="Texture" id=5]
+[ext_resource path="res://art/player/player_walk_down4.png" type="Texture" id=6]
+[ext_resource path="res://art/player/player_walk_right1.png" type="Texture" id=7]
+[ext_resource path="res://art/player/player_walk_right2.png" type="Texture" id=8]
+[ext_resource path="res://art/player/player_walk_right3.png" type="Texture" id=9]
+[ext_resource path="res://art/player/player_walk_right4.png" type="Texture" id=10]
+[ext_resource path="res://art/player/player_walk_left1.png" type="Texture" id=11]
+[ext_resource path="res://art/player/player_walk_left2.png" type="Texture" id=12]
+[ext_resource path="res://art/player/player_walk_left3.png" type="Texture" id=13]
+[ext_resource path="res://art/player/player_walk_left4.png" type="Texture" id=14]
+[ext_resource path="res://art/player/player_walk_up1.png" type="Texture" id=15]
+[ext_resource path="res://art/player/player_walk_up2.png" type="Texture" id=16]
+[ext_resource path="res://art/player/player_walk_up3.png" type="Texture" id=17]
+[ext_resource path="res://art/player/player_walk_up4.png" type="Texture" id=18]
+[ext_resource path="res://scenes/misc/customcamera.tscn" type="PackedScene" id=19]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 6.93365
+height = 0.338158
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "stand",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "down",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "right",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "left",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "up",
+"speed": 8.0
+} ]
+
+[node name="character" type="KinematicBody2D"]
+
+pause_mode = 2
+input_pickable = true
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 0, 6 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="move_sprite" type="AnimatedSprite" parent="." index="1"]
+
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+animation = "left"
+playing = true
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="transition_timer" type="Timer" parent="." index="2"]
+
+pause_mode = 2
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+_sections_unfolded = [ "Pause" ]
+
+[node name="customcamera" parent="." index="3" instance=ExtResource( 19 )]
+
+current = true
+zoom = Vector2( 0.325, 0.325 )
+limit_left = 0
+limit_top = 0
+limit_right = 1366
+limit_bottom = 768
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+_sections_unfolded = [ "Limit", "Smoothing" ]
+
+[node name="cutscenetimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="transition_timer" to="." method="_on_transition_timer_timeout"]
+
+[connection signal="timeout" from="cutscenetimer" to="." method="_on_cutscenetimer_timeout"]
+
+

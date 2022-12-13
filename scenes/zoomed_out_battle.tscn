@@ -1,0 +1,1968 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scripts/zoomed_out_battle.gd" type="Script" id=1]
+[ext_resource path="res://scenes/objects/star_system.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/misc/ingamemenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/misc/optionsmenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ships/zoomed_out_player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/planet1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/objects/station1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/station1_wreckage.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/objects/portal.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/asteroidfield.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/twinplanets.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 11082.1, 3086.32, 0, 0, 0, 0, 13098.2, 2711.91, 0, 0, 0, 0, 15503.1, 2452.7, 0, 0, 0, 0, 18789.3, 2260.34, 0, 0, 0, 0, 22892.9, 2001.79, 0, 0, 0, 0, 26818.6, 2265.5, 0, 0, 0, 0, 31858.7, 2942.31, 0, 0, 0, 0, 36135.6, 4151.95, 0, 0, 0, 0, 39807.7, 6254.4, 0, 0, 0, 0, 43335.8, 9436.88, 0, 0, 0, 0, 46446.5, 13153.4, 0, 0, 0, 0, 48394.9, 17009.4, 0, 0, 0, 0, 49577.2, 20679.3, 0, 0, 0, 0, 49718, 23787.6, 0, 0, 0, 0, 49298.5, 26468.6, 0, 0, 0, 0, 48175.3, 29391.9, 0, 0, 0, 0, 46389.6, 31710.4, 0, 0, 0, 0, 44172, 33323.2, 0, 0, 0, 0, 40936, 34615.4, 0, 0, 0, 0, 38301.7, 35310.5, 0, 0, 0, 0, 35606.8, 35775.5, 0, 0, 0, 0, 32858.4, 36044.9, 0, 0, 0, 0, 29589.5, 36116.9, 0, 0, 0, 0, 25802.2, 36260.9, 0, 0, 0, 0, 22562.1, 36131.3, 0, 0, 0, 0, 19872.8, 35848, 0, 0, 0, 0, 16557.1, 35080.1, 0, 0, 0, 0, 13518.7, 33875.6, 0, 0, 0, 0, 10773.2, 32222.7, 0, 0, 0, 0, 8550.53, 30189.1, 0, 0, 0, 0, 6195.15, 27500.4, 0, 0, 0, 0, 4935.46, 24885.8, 0, 0, 0, 0, 4173.3, 22472.2, 0, 0, 0, 0, 3622.85, 19910.5, 0, 0, 0, 0, 3299.75, 17766.3, 0, 0, 0, 0, 3112.54, 15635, 0, 0, 0, 0, 3314.15, 12927.8, 0, 0, 0, 0, 3740.02, 10071.8, 0, 0, 0, 0, 4283.82, 8476.69, 0, 0, 0, 0, 5085.39, 6859.22, 0, 0, 0, 0, 5834.21, 5764.79, 0, 0, 0, 0, 6511.03, 5044.77, 0, 0, 0, 0, 7431.33, 4326.65, 0, 0, 0, 0, 8216.47, 3950.34, 0, 0, 0, 0, 9454.9, 3518.33, 0, 0, 0, 0, 11082.1, 3086.32 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4856.07, 3432.64 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10000, 5000 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4358.91, 3357.38 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 208.448, 211.538 )
+
+[node name="zoomed_out_battle" type="Node"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="star_system" parent="." index="0" instance=ExtResource( 2 )]
+
+show_behind_parent = true
+margin_top = -75.0
+margin_bottom = 39925.0
+planet1path = NodePath("../planet1path")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
+
+editor/display_folded = true
+layer = 9
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
+
+_sections_unfolded = [ "Margin", "Mouse", "Rect", "Size Flags", "Visibility" ]
+
+[node name="ingamemenu" parent="CanvasLayer" index="1" instance=ExtResource( 4 )]
+
+visible = false
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="optionsmenu" parent="CanvasLayer" index="2" instance=ExtResource( 5 )]
+
+pause_mode = 2
+visible = false
+_sections_unfolded = [ "Pause" ]
+
+[node name="enemy_container" type="Node" parent="." index="2"]
+
+[node name="zoomed_out_player" parent="." index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 6373.74, 3015.32 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+station1pth = NodePath("../planet1path/planet1follow/station1")
+
+[node name="planet1path" type="Path2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 31.2207, -4.20483 )
+curve = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="planet1follow" type="PathFollow2D" parent="planet1path" index="0"]
+
+position = Vector2( 11082.1, 3086.32 )
+rotation = -0.183514
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = true
+lookahead = 4.0
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="planet1" parent="planet1path/planet1follow" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -3787.36, 124.11 )
+rotation = 0.183514
+
+[node name="station1" parent="planet1path/planet1follow" index="1" instance=ExtResource( 8 )]
+
+position = Vector2( -5394.18, -1082.37 )
+rotation = 0.183514
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="station1_wreckage" parent="planet1path/planet1follow" index="2" instance=ExtResource( 9 )]
+
+position = Vector2( -5632.98, -1330.11 )
+rotation = 0.183514
+_sections_unfolded = [ "Transform" ]
+
+[node name="transition_timer" type="Timer" parent="." index="5"]
+
+pause_mode = 2
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+_sections_unfolded = [ "Pause" ]
+
+[node name="portal" parent="." index="6" instance=ExtResource( 10 )]
+
+position = Vector2( 45000, 30000 )
+
+[node name="portal_msgzone" type="Area2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 45000, 30000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portal_msgzone" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rescues" type="Node" parent="." index="8"]
+
+[node name="rescue1" type="Area2D" parent="rescues" index="0"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 15000, 9000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue1" index="0"]
+
+shape = SubResource( 3 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="rescue2" type="Area2D" parent="rescues" index="1"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 15000, 25000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue2" index="0"]
+
+shape = SubResource( 3 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="rescue3" type="Area2D" parent="rescues" index="2"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 40000, 12000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue3" index="0"]
+
+shape = SubResource( 3 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="rescue4" type="Area2D" parent="rescues" index="3"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 25000, 15000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue4" index="0"]
+
+shape = SubResource( 3 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="rescue5" type="Area2D" parent="rescues" index="4"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 37000, 28000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue5" index="0"]
+
+shape = SubResource( 3 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="rescue1_msgzone" type="Area2D" parent="rescues" index="5"]
+
+editor/display_folded = true
+position = Vector2( 15000, 9000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue1_msgzone" index="0"]
+
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rescue2_msgzone" type="Area2D" parent="rescues" index="6"]
+
+editor/display_folded = true
+position = Vector2( 15000, 25000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue2_msgzone" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="rescue3_msgzone" type="Area2D" parent="rescues" index="7"]
+
+editor/display_folded = true
+position = Vector2( 40000, 12000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue3_msgzone" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="rescue4_msgzone" type="Area2D" parent="rescues" index="8"]
+
+editor/display_folded = true
+position = Vector2( 25000, 15000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue4_msgzone" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="rescue5_msgzone" type="Area2D" parent="rescues" index="9"]
+
+editor/display_folded = true
+position = Vector2( 37000, 28000 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rescues/rescue5_msgzone" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="asteroids" type="Node" parent="." index="9"]
+
+editor/display_folded = true
+
+[node name="asteroidfield" parent="asteroids" index="0" instance=ExtResource( 11 )]
+
+position = Vector2( 731.212, 12894.3 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="asteroidfield26" parent="asteroids" index="1" instance=ExtResource( 11 )]
+
+position = Vector2( 2257.07, 13040.8 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield66" parent="asteroids" index="2" instance=ExtResource( 11 )]
+
+position = Vector2( 1304.57, 14133.7 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield42" parent="asteroids" index="3" instance=ExtResource( 11 )]
+
+position = Vector2( 2392.14, 13689.1 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield65" parent="asteroids" index="4" instance=ExtResource( 11 )]
+
+position = Vector2( 1439.65, 14782 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield51" parent="asteroids" index="5" instance=ExtResource( 11 )]
+
+position = Vector2( 3676.94, 13880.7 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield67" parent="asteroids" index="6" instance=ExtResource( 11 )]
+
+position = Vector2( 1077.51, 13497.4 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield2" parent="asteroids" index="7" instance=ExtResource( 11 )]
+
+position = Vector2( 1942.23, 12442.1 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield30" parent="asteroids" index="8" instance=ExtResource( 11 )]
+
+position = Vector2( 3416.71, 12578.4 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield34" parent="asteroids" index="9" instance=ExtResource( 11 )]
+
+position = Vector2( 4788.14, 13401.3 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield64" parent="asteroids" index="10" instance=ExtResource( 11 )]
+
+position = Vector2( 3490.64, 13247 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield68" parent="asteroids" index="11" instance=ExtResource( 11 )]
+
+position = Vector2( 2538.15, 14339.9 )
+rotation = -0.349066
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield3" parent="asteroids" index="12" instance=ExtResource( 11 )]
+
+position = Vector2( 3163.13, 11956.9 )
+rotation = -0.436332
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield21" parent="asteroids" index="13" instance=ExtResource( 11 )]
+
+position = Vector2( 4428.7, 12103.4 )
+rotation = -0.436332
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield40" parent="asteroids" index="14" instance=ExtResource( 11 )]
+
+position = Vector2( 5933.7, 12929.7 )
+rotation = -0.436332
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield54" parent="asteroids" index="15" instance=ExtResource( 11 )]
+
+position = Vector2( 4540.3, 12785.7 )
+rotation = -0.436332
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield4" parent="asteroids" index="16" instance=ExtResource( 11 )]
+
+position = Vector2( 4213.79, 11507.2 )
+rotation = -0.436332
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield25" parent="asteroids" index="17" instance=ExtResource( 11 )]
+
+position = Vector2( 5536.02, 11599.9 )
+rotation = -0.436332
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield39" parent="asteroids" index="18" instance=ExtResource( 11 )]
+
+position = Vector2( 6898.73, 12312.3 )
+rotation = -0.436332
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield50" parent="asteroids" index="19" instance=ExtResource( 11 )]
+
+position = Vector2( 5642.33, 12319 )
+rotation = -0.436332
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield5" parent="asteroids" index="20" instance=ExtResource( 11 )]
+
+position = Vector2( 5281.05, 11006.8 )
+rotation = -0.523599
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield22" parent="asteroids" index="21" instance=ExtResource( 11 )]
+
+position = Vector2( 6532.44, 11098.4 )
+rotation = -0.523599
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield41" parent="asteroids" index="22" instance=ExtResource( 11 )]
+
+position = Vector2( 6710.05, 11775.2 )
+rotation = -0.523599
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield55" parent="asteroids" index="23" instance=ExtResource( 11 )]
+
+position = Vector2( 7955.17, 11769 )
+rotation = -0.523599
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield6" parent="asteroids" index="24" instance=ExtResource( 11 )]
+
+position = Vector2( 6283.24, 10451.6 )
+rotation = -0.523599
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield19" parent="asteroids" index="25" instance=ExtResource( 11 )]
+
+position = Vector2( 7522.02, 10489.9 )
+rotation = -0.523599
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield45" parent="asteroids" index="26" instance=ExtResource( 11 )]
+
+position = Vector2( 7710.2, 11145.9 )
+rotation = -0.523599
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield58" parent="asteroids" index="27" instance=ExtResource( 11 )]
+
+position = Vector2( 9027.38, 11163.5 )
+rotation = -0.523599
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield7" parent="asteroids" index="28" instance=ExtResource( 11 )]
+
+position = Vector2( 7290.25, 9817.61 )
+rotation = -0.610865
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield20" parent="asteroids" index="29" instance=ExtResource( 11 )]
+
+position = Vector2( 10568.1, 9201.52 )
+rotation = -0.610865
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield46" parent="asteroids" index="30" instance=ExtResource( 11 )]
+
+position = Vector2( 8711.58, 10558.5 )
+rotation = -0.610865
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield62" parent="asteroids" index="31" instance=ExtResource( 11 )]
+
+position = Vector2( 10005.4, 10504.1 )
+rotation = -0.610865
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield8" parent="asteroids" index="32" instance=ExtResource( 11 )]
+
+position = Vector2( 8205.09, 9157.57 )
+rotation = -0.610865
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield23" parent="asteroids" index="33" instance=ExtResource( 11 )]
+
+position = Vector2( 10372, 8491.66 )
+rotation = -0.698132
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield43" parent="asteroids" index="34" instance=ExtResource( 11 )]
+
+position = Vector2( 8493.65, 9813.62 )
+rotation = -0.610865
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield61" parent="asteroids" index="35" instance=ExtResource( 11 )]
+
+position = Vector2( 9652.95, 9902.3 )
+rotation = -0.610865
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield9" parent="asteroids" index="36" instance=ExtResource( 11 )]
+
+position = Vector2( 9194.95, 8486.09 )
+rotation = -0.698132
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield31" parent="asteroids" index="37" instance=ExtResource( 11 )]
+
+position = Vector2( 11545.4, 8503.38 )
+rotation = -0.698132
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield35" parent="asteroids" index="38" instance=ExtResource( 11 )]
+
+position = Vector2( 9417.53, 9162.7 )
+rotation = -0.698132
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield52" parent="asteroids" index="39" instance=ExtResource( 11 )]
+
+position = Vector2( 10907, 9754.83 )
+rotation = -0.698132
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield10" parent="asteroids" index="40" instance=ExtResource( 11 )]
+
+position = Vector2( 10189.2, 7794.1 )
+rotation = -0.698132
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield32" parent="asteroids" index="41" instance=ExtResource( 11 )]
+
+position = Vector2( 11335.3, 7794.84 )
+rotation = -0.698132
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield36" parent="asteroids" index="42" instance=ExtResource( 11 )]
+
+position = Vector2( 11844.7, 9105.35 )
+rotation = -0.698132
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield53" parent="asteroids" index="43" instance=ExtResource( 11 )]
+
+position = Vector2( 12738, 8347.55 )
+rotation = -0.698132
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield11" parent="asteroids" index="44" instance=ExtResource( 11 )]
+
+position = Vector2( 11096.6, 7069.91 )
+rotation = -0.785398
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield24" parent="asteroids" index="45" instance=ExtResource( 11 )]
+
+position = Vector2( 12201.4, 6992.29 )
+rotation = -0.785398
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield37" parent="asteroids" index="46" instance=ExtResource( 11 )]
+
+position = Vector2( 12404.5, 7707.95 )
+rotation = -0.785398
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield56" parent="asteroids" index="47" instance=ExtResource( 11 )]
+
+position = Vector2( 13596.6, 7581.96 )
+rotation = -0.785398
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield12" parent="asteroids" index="48" instance=ExtResource( 11 )]
+
+position = Vector2( 11956.4, 6323.53 )
+rotation = -0.785398
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield27" parent="asteroids" index="49" instance=ExtResource( 11 )]
+
+position = Vector2( 13827.3, 5384.64 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield47" parent="asteroids" index="50" instance=ExtResource( 11 )]
+
+position = Vector2( 13288.1, 6907.32 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield59" parent="asteroids" index="51" instance=ExtResource( 11 )]
+
+position = Vector2( 15160.4, 5874.25 )
+rotation = -0.785398
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield13" parent="asteroids" index="52" instance=ExtResource( 11 )]
+
+position = Vector2( 12786.5, 5439.46 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield28" parent="asteroids" index="53" instance=ExtResource( 11 )]
+
+position = Vector2( 14897, 5136.14 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield48" parent="asteroids" index="54" instance=ExtResource( 11 )]
+
+position = Vector2( 13020.6, 6182.1 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield57" parent="asteroids" index="55" instance=ExtResource( 11 )]
+
+position = Vector2( 14370.9, 6729.72 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield14" parent="asteroids" index="56" instance=ExtResource( 11 )]
+
+position = Vector2( 13625.3, 4601.15 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield29" parent="asteroids" index="57" instance=ExtResource( 11 )]
+
+position = Vector2( 14570.3, 4490.32 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield44" parent="asteroids" index="58" instance=ExtResource( 11 )]
+
+position = Vector2( 15901.4, 4967.16 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield60" parent="asteroids" index="59" instance=ExtResource( 11 )]
+
+position = Vector2( 14132.9, 6050.68 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield15" parent="asteroids" index="60" instance=ExtResource( 11 )]
+
+position = Vector2( 14311.5, 3694.72 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield18" parent="asteroids" index="61" instance=ExtResource( 11 )]
+
+position = Vector2( 15252.4, 3537.53 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield38" parent="asteroids" index="62" instance=ExtResource( 11 )]
+
+position = Vector2( 15600.1, 4207.07 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield49" parent="asteroids" index="63" instance=ExtResource( 11 )]
+
+position = Vector2( 16588.9, 3991.79 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield16" parent="asteroids" index="64" instance=ExtResource( 11 )]
+
+position = Vector2( 15000.1, 2740.02 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield17" parent="asteroids" index="65" instance=ExtResource( 11 )]
+
+position = Vector2( 15908.3, 2592.85 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield33" parent="asteroids" index="66" instance=ExtResource( 11 )]
+
+position = Vector2( 16275.2, 3275.09 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield63" parent="asteroids" index="67" instance=ExtResource( 11 )]
+
+position = Vector2( 16924.7, 2304.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield69" parent="asteroids" index="68" instance=ExtResource( 11 )]
+
+position = Vector2( 17252.7, 3031.52 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield70" parent="asteroids" index="69" instance=ExtResource( 11 )]
+
+position = Vector2( 15667.5, 1782.71 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield71" parent="asteroids" index="70" instance=ExtResource( 11 )]
+
+position = Vector2( 16575.7, 1627.13 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield72" parent="asteroids" index="71" instance=ExtResource( 11 )]
+
+position = Vector2( 17887.6, 2047.61 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield73" parent="asteroids" index="72" instance=ExtResource( 11 )]
+
+position = Vector2( 17568.1, 1332.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield74" parent="asteroids" index="73" instance=ExtResource( 11 )]
+
+position = Vector2( 16348.7, 832.434 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield75" parent="asteroids" index="74" instance=ExtResource( 11 )]
+
+position = Vector2( 17269.5, 668.449 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield76" parent="asteroids" index="75" instance=ExtResource( 11 )]
+
+position = Vector2( 18552, 1093.13 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield77" parent="asteroids" index="76" instance=ExtResource( 11 )]
+
+position = Vector2( 18047.4, 693.677 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroids2" type="Node" parent="." index="10"]
+
+editor/display_folded = true
+
+[node name="asteroidfield14" parent="asteroids2" index="0" instance=ExtResource( 11 )]
+
+position = Vector2( 36179.1, 20416.5 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield125" parent="asteroids2" index="1" instance=ExtResource( 11 )]
+
+position = Vector2( 39312.7, 16155.6 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield162" parent="asteroids2" index="2" instance=ExtResource( 11 )]
+
+position = Vector2( 42494.2, 11723.9 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield181" parent="asteroids2" index="3" instance=ExtResource( 11 )]
+
+position = Vector2( 45727.5, 7223.21 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield202" parent="asteroids2" index="4" instance=ExtResource( 11 )]
+
+position = Vector2( 48805.6, 2860.46 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield20" parent="asteroids2" index="5" instance=ExtResource( 11 )]
+
+position = Vector2( 33126, 24758.5 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield24" parent="asteroids2" index="6" instance=ExtResource( 11 )]
+
+position = Vector2( 30030.8, 29048.7 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield32" parent="asteroids2" index="7" instance=ExtResource( 11 )]
+
+position = Vector2( 27033.6, 33299.7 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield59" parent="asteroids2" index="8" instance=ExtResource( 11 )]
+
+position = Vector2( 23899.2, 37707.5 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield29" parent="asteroids2" index="9" instance=ExtResource( 11 )]
+
+position = Vector2( 37124.1, 20305.7 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield127" parent="asteroids2" index="10" instance=ExtResource( 11 )]
+
+position = Vector2( 40257.6, 16044.8 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield149" parent="asteroids2" index="11" instance=ExtResource( 11 )]
+
+position = Vector2( 43439.2, 11613.1 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield171" parent="asteroids2" index="12" instance=ExtResource( 11 )]
+
+position = Vector2( 46672.4, 7112.39 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield188" parent="asteroids2" index="13" instance=ExtResource( 11 )]
+
+position = Vector2( 49750.5, 2749.63 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield30" parent="asteroids2" index="14" instance=ExtResource( 11 )]
+
+position = Vector2( 34071, 24647.7 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield31" parent="asteroids2" index="15" instance=ExtResource( 11 )]
+
+position = Vector2( 30975.8, 28937.9 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield41" parent="asteroids2" index="16" instance=ExtResource( 11 )]
+
+position = Vector2( 27978.5, 33188.9 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield58" parent="asteroids2" index="17" instance=ExtResource( 11 )]
+
+position = Vector2( 24844.1, 37596.6 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield44" parent="asteroids2" index="18" instance=ExtResource( 11 )]
+
+position = Vector2( 38455.3, 20782.5 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield128" parent="asteroids2" index="19" instance=ExtResource( 11 )]
+
+position = Vector2( 41588.8, 16521.7 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield155" parent="asteroids2" index="20" instance=ExtResource( 11 )]
+
+position = Vector2( 44770.3, 12089.9 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield178" parent="asteroids2" index="21" instance=ExtResource( 11 )]
+
+position = Vector2( 48003.6, 7589.23 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield200" parent="asteroids2" index="22" instance=ExtResource( 11 )]
+
+position = Vector2( 51081.7, 3226.47 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield45" parent="asteroids2" index="23" instance=ExtResource( 11 )]
+
+position = Vector2( 35402.1, 25124.5 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield46" parent="asteroids2" index="24" instance=ExtResource( 11 )]
+
+position = Vector2( 32306.9, 29414.7 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield47" parent="asteroids2" index="25" instance=ExtResource( 11 )]
+
+position = Vector2( 29309.7, 33665.7 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield62" parent="asteroids2" index="26" instance=ExtResource( 11 )]
+
+position = Vector2( 26175.3, 38073.5 )
+rotation = -0.872665
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield15" parent="asteroids2" index="27" instance=ExtResource( 11 )]
+
+position = Vector2( 36865.4, 19510.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield129" parent="asteroids2" index="28" instance=ExtResource( 11 )]
+
+position = Vector2( 39998.9, 15249.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield147" parent="asteroids2" index="29" instance=ExtResource( 11 )]
+
+position = Vector2( 43180.5, 10817.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield166" parent="asteroids2" index="30" instance=ExtResource( 11 )]
+
+position = Vector2( 46413.7, 6316.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield187" parent="asteroids2" index="31" instance=ExtResource( 11 )]
+
+position = Vector2( 49491.8, 1954.05 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield21" parent="asteroids2" index="32" instance=ExtResource( 11 )]
+
+position = Vector2( 33812.3, 23852.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield25" parent="asteroids2" index="33" instance=ExtResource( 11 )]
+
+position = Vector2( 30717.1, 28142.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield36" parent="asteroids2" index="34" instance=ExtResource( 11 )]
+
+position = Vector2( 27719.8, 32393.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield60" parent="asteroids2" index="35" instance=ExtResource( 11 )]
+
+position = Vector2( 24585.4, 36801 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield18" parent="asteroids2" index="36" instance=ExtResource( 11 )]
+
+position = Vector2( 37806.3, 19352.9 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield134" parent="asteroids2" index="37" instance=ExtResource( 11 )]
+
+position = Vector2( 40939.8, 15092 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield160" parent="asteroids2" index="38" instance=ExtResource( 11 )]
+
+position = Vector2( 44121.3, 10660.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield183" parent="asteroids2" index="39" instance=ExtResource( 11 )]
+
+position = Vector2( 47354.6, 6159.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield204" parent="asteroids2" index="40" instance=ExtResource( 11 )]
+
+position = Vector2( 50432.7, 1796.85 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield22" parent="asteroids2" index="41" instance=ExtResource( 11 )]
+
+position = Vector2( 34753.1, 23694.9 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield26" parent="asteroids2" index="42" instance=ExtResource( 11 )]
+
+position = Vector2( 31657.9, 27985.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield43" parent="asteroids2" index="43" instance=ExtResource( 11 )]
+
+position = Vector2( 28660.7, 32236.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield61" parent="asteroids2" index="44" instance=ExtResource( 11 )]
+
+position = Vector2( 25526.3, 36643.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield38" parent="asteroids2" index="45" instance=ExtResource( 11 )]
+
+position = Vector2( 38153.9, 20022.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield131" parent="asteroids2" index="46" instance=ExtResource( 11 )]
+
+position = Vector2( 41287.5, 15761.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield152" parent="asteroids2" index="47" instance=ExtResource( 11 )]
+
+position = Vector2( 44469, 11329.9 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield179" parent="asteroids2" index="48" instance=ExtResource( 11 )]
+
+position = Vector2( 47702.3, 6829.15 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield201" parent="asteroids2" index="49" instance=ExtResource( 11 )]
+
+position = Vector2( 50780.3, 2466.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield39" parent="asteroids2" index="50" instance=ExtResource( 11 )]
+
+position = Vector2( 35100.8, 24364.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield40" parent="asteroids2" index="51" instance=ExtResource( 11 )]
+
+position = Vector2( 32005.6, 28654.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield42" parent="asteroids2" index="52" instance=ExtResource( 11 )]
+
+position = Vector2( 29008.4, 32905.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield57" parent="asteroids2" index="53" instance=ExtResource( 11 )]
+
+position = Vector2( 25874, 37313.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield49" parent="asteroids2" index="54" instance=ExtResource( 11 )]
+
+position = Vector2( 39142.8, 19807.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield135" parent="asteroids2" index="55" instance=ExtResource( 11 )]
+
+position = Vector2( 42276.3, 15546.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield154" parent="asteroids2" index="56" instance=ExtResource( 11 )]
+
+position = Vector2( 45457.9, 11114.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield169" parent="asteroids2" index="57" instance=ExtResource( 11 )]
+
+position = Vector2( 48691.1, 6613.86 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield196" parent="asteroids2" index="58" instance=ExtResource( 11 )]
+
+position = Vector2( 51769.2, 2251.11 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield50" parent="asteroids2" index="59" instance=ExtResource( 11 )]
+
+position = Vector2( 36089.7, 24149.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield51" parent="asteroids2" index="60" instance=ExtResource( 11 )]
+
+position = Vector2( 32994.5, 28439.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield52" parent="asteroids2" index="61" instance=ExtResource( 11 )]
+
+position = Vector2( 29997.2, 32690.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield68" parent="asteroids2" index="62" instance=ExtResource( 11 )]
+
+position = Vector2( 26862.8, 37098.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield16" parent="asteroids2" index="63" instance=ExtResource( 11 )]
+
+position = Vector2( 37553.9, 18555.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield114" parent="asteroids2" index="64" instance=ExtResource( 11 )]
+
+position = Vector2( 40687.5, 14294.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield144" parent="asteroids2" index="65" instance=ExtResource( 11 )]
+
+position = Vector2( 43869, 9862.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield168" parent="asteroids2" index="66" instance=ExtResource( 11 )]
+
+position = Vector2( 47102.3, 5362.09 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield189" parent="asteroids2" index="67" instance=ExtResource( 11 )]
+
+position = Vector2( 50180.4, 999.343 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield19" parent="asteroids2" index="68" instance=ExtResource( 11 )]
+
+position = Vector2( 34500.8, 22897.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield28" parent="asteroids2" index="69" instance=ExtResource( 11 )]
+
+position = Vector2( 31405.6, 27187.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield53" parent="asteroids2" index="70" instance=ExtResource( 11 )]
+
+position = Vector2( 28408.4, 31438.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield54" parent="asteroids2" index="71" instance=ExtResource( 11 )]
+
+position = Vector2( 25274, 35846.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield17" parent="asteroids2" index="72" instance=ExtResource( 11 )]
+
+position = Vector2( 38451.6, 18408.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield136" parent="asteroids2" index="73" instance=ExtResource( 11 )]
+
+position = Vector2( 41585.1, 14147.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield153" parent="asteroids2" index="74" instance=ExtResource( 11 )]
+
+position = Vector2( 44766.7, 9715.63 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield165" parent="asteroids2" index="75" instance=ExtResource( 11 )]
+
+position = Vector2( 47999.9, 5214.93 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield186" parent="asteroids2" index="76" instance=ExtResource( 11 )]
+
+position = Vector2( 51078, 852.175 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield23" parent="asteroids2" index="77" instance=ExtResource( 11 )]
+
+position = Vector2( 35409, 22750.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield27" parent="asteroids2" index="78" instance=ExtResource( 11 )]
+
+position = Vector2( 32313.8, 27040.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield48" parent="asteroids2" index="79" instance=ExtResource( 11 )]
+
+position = Vector2( 29316.6, 31291.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield56" parent="asteroids2" index="80" instance=ExtResource( 11 )]
+
+position = Vector2( 26182.2, 35699.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield33" parent="asteroids2" index="81" instance=ExtResource( 11 )]
+
+position = Vector2( 38829, 19090.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield123" parent="asteroids2" index="82" instance=ExtResource( 11 )]
+
+position = Vector2( 41962.6, 14829.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield157" parent="asteroids2" index="83" instance=ExtResource( 11 )]
+
+position = Vector2( 45144.1, 10397.9 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield173" parent="asteroids2" index="84" instance=ExtResource( 11 )]
+
+position = Vector2( 48377.4, 5897.17 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield192" parent="asteroids2" index="85" instance=ExtResource( 11 )]
+
+position = Vector2( 51455.5, 1534.42 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield34" parent="asteroids2" index="86" instance=ExtResource( 11 )]
+
+position = Vector2( 35775.9, 23432.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield35" parent="asteroids2" index="87" instance=ExtResource( 11 )]
+
+position = Vector2( 32680.7, 27722.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield37" parent="asteroids2" index="88" instance=ExtResource( 11 )]
+
+position = Vector2( 29683.5, 31973.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield55" parent="asteroids2" index="89" instance=ExtResource( 11 )]
+
+position = Vector2( 26549.1, 36381.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield63" parent="asteroids2" index="90" instance=ExtResource( 11 )]
+
+position = Vector2( 39478.6, 18119.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield115" parent="asteroids2" index="91" instance=ExtResource( 11 )]
+
+position = Vector2( 42612.1, 13858.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield142" parent="asteroids2" index="92" instance=ExtResource( 11 )]
+
+position = Vector2( 45793.7, 9426.88 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield170" parent="asteroids2" index="93" instance=ExtResource( 11 )]
+
+position = Vector2( 49026.9, 4926.18 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield64" parent="asteroids2" index="94" instance=ExtResource( 11 )]
+
+position = Vector2( 36425.5, 22461.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield65" parent="asteroids2" index="95" instance=ExtResource( 11 )]
+
+position = Vector2( 33330.3, 26751.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield66" parent="asteroids2" index="96" instance=ExtResource( 11 )]
+
+position = Vector2( 30333, 31002.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield67" parent="asteroids2" index="97" instance=ExtResource( 11 )]
+
+position = Vector2( 27198.6, 35410.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield69" parent="asteroids2" index="98" instance=ExtResource( 11 )]
+
+position = Vector2( 39796, 18846.9 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield116" parent="asteroids2" index="99" instance=ExtResource( 11 )]
+
+position = Vector2( 42929.5, 14586 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield143" parent="asteroids2" index="100" instance=ExtResource( 11 )]
+
+position = Vector2( 46111, 10154.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield177" parent="asteroids2" index="101" instance=ExtResource( 11 )]
+
+position = Vector2( 49344.3, 5653.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield197" parent="asteroids2" index="102" instance=ExtResource( 11 )]
+
+position = Vector2( 52422.4, 1290.85 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield198" parent="asteroids2" index="103" instance=ExtResource( 11 )]
+
+position = Vector2( 52040.3, 685.176 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield78" parent="asteroids2" index="104" instance=ExtResource( 11 )]
+
+position = Vector2( 36753.4, 23188.9 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield92" parent="asteroids2" index="105" instance=ExtResource( 11 )]
+
+position = Vector2( 33658.2, 27479.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield100" parent="asteroids2" index="106" instance=ExtResource( 11 )]
+
+position = Vector2( 30661, 31730.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield109" parent="asteroids2" index="107" instance=ExtResource( 11 )]
+
+position = Vector2( 27526.6, 36137.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield70" parent="asteroids2" index="108" instance=ExtResource( 11 )]
+
+position = Vector2( 38221.3, 17598.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield137" parent="asteroids2" index="109" instance=ExtResource( 11 )]
+
+position = Vector2( 41354.9, 13337.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield156" parent="asteroids2" index="110" instance=ExtResource( 11 )]
+
+position = Vector2( 44536.4, 8905.49 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield172" parent="asteroids2" index="111" instance=ExtResource( 11 )]
+
+position = Vector2( 47769.7, 4404.79 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield83" parent="asteroids2" index="112" instance=ExtResource( 11 )]
+
+position = Vector2( 35168.2, 21940.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield90" parent="asteroids2" index="113" instance=ExtResource( 11 )]
+
+position = Vector2( 32073, 26230.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield99" parent="asteroids2" index="114" instance=ExtResource( 11 )]
+
+position = Vector2( 29075.8, 30481.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield106" parent="asteroids2" index="115" instance=ExtResource( 11 )]
+
+position = Vector2( 25941.4, 34889 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield117" parent="asteroids2" index="116" instance=ExtResource( 11 )]
+
+position = Vector2( 22846.2, 39296.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield71" parent="asteroids2" index="117" instance=ExtResource( 11 )]
+
+position = Vector2( 39129.6, 17442.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield138" parent="asteroids2" index="118" instance=ExtResource( 11 )]
+
+position = Vector2( 42263.1, 13181.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield150" parent="asteroids2" index="119" instance=ExtResource( 11 )]
+
+position = Vector2( 45444.7, 8749.91 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield167" parent="asteroids2" index="120" instance=ExtResource( 11 )]
+
+position = Vector2( 48677.9, 4249.21 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield84" parent="asteroids2" index="121" instance=ExtResource( 11 )]
+
+position = Vector2( 36076.5, 21784.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield89" parent="asteroids2" index="122" instance=ExtResource( 11 )]
+
+position = Vector2( 32981.3, 26074.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield98" parent="asteroids2" index="123" instance=ExtResource( 11 )]
+
+position = Vector2( 29984, 30325.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield111" parent="asteroids2" index="124" instance=ExtResource( 11 )]
+
+position = Vector2( 26849.6, 34733.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield132" parent="asteroids2" index="125" instance=ExtResource( 11 )]
+
+position = Vector2( 23754.4, 39141.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield72" parent="asteroids2" index="126" instance=ExtResource( 11 )]
+
+position = Vector2( 40441.5, 17863 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield139" parent="asteroids2" index="127" instance=ExtResource( 11 )]
+
+position = Vector2( 43575, 13602.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield148" parent="asteroids2" index="128" instance=ExtResource( 11 )]
+
+position = Vector2( 46756.5, 9170.39 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield174" parent="asteroids2" index="129" instance=ExtResource( 11 )]
+
+position = Vector2( 49989.8, 4669.68 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield85" parent="asteroids2" index="130" instance=ExtResource( 11 )]
+
+position = Vector2( 37388.3, 22205 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield88" parent="asteroids2" index="131" instance=ExtResource( 11 )]
+
+position = Vector2( 34293.1, 26495.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield97" parent="asteroids2" index="132" instance=ExtResource( 11 )]
+
+position = Vector2( 31295.9, 30746.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield108" parent="asteroids2" index="133" instance=ExtResource( 11 )]
+
+position = Vector2( 28161.5, 35153.9 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield73" parent="asteroids2" index="134" instance=ExtResource( 11 )]
+
+position = Vector2( 40121.9, 17148.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield140" parent="asteroids2" index="135" instance=ExtResource( 11 )]
+
+position = Vector2( 43255.5, 12887.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield145" parent="asteroids2" index="136" instance=ExtResource( 11 )]
+
+position = Vector2( 46437, 8455.58 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield175" parent="asteroids2" index="137" instance=ExtResource( 11 )]
+
+position = Vector2( 49670.3, 3954.88 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield86" parent="asteroids2" index="138" instance=ExtResource( 11 )]
+
+position = Vector2( 37068.8, 21490.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield91" parent="asteroids2" index="139" instance=ExtResource( 11 )]
+
+position = Vector2( 33973.6, 25780.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield103" parent="asteroids2" index="140" instance=ExtResource( 11 )]
+
+position = Vector2( 30976.3, 30031.4 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield112" parent="asteroids2" index="141" instance=ExtResource( 11 )]
+
+position = Vector2( 27841.9, 34439.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield133" parent="asteroids2" index="142" instance=ExtResource( 11 )]
+
+position = Vector2( 24746.7, 38846.9 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield74" parent="asteroids2" index="143" instance=ExtResource( 11 )]
+
+position = Vector2( 38902.5, 16647.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield124" parent="asteroids2" index="144" instance=ExtResource( 11 )]
+
+position = Vector2( 42036.1, 12386.9 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield146" parent="asteroids2" index="145" instance=ExtResource( 11 )]
+
+position = Vector2( 45217.6, 7955.21 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield176" parent="asteroids2" index="146" instance=ExtResource( 11 )]
+
+position = Vector2( 48450.9, 3454.51 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield82" parent="asteroids2" index="147" instance=ExtResource( 11 )]
+
+position = Vector2( 35849.4, 20989.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield87" parent="asteroids2" index="148" instance=ExtResource( 11 )]
+
+position = Vector2( 32754.2, 25280 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield96" parent="asteroids2" index="149" instance=ExtResource( 11 )]
+
+position = Vector2( 29756.9, 29531 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield110" parent="asteroids2" index="150" instance=ExtResource( 11 )]
+
+position = Vector2( 26622.6, 33938.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield130" parent="asteroids2" index="151" instance=ExtResource( 11 )]
+
+position = Vector2( 23527.4, 38346.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield75" parent="asteroids2" index="152" instance=ExtResource( 11 )]
+
+position = Vector2( 39823.4, 16483.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield119" parent="asteroids2" index="153" instance=ExtResource( 11 )]
+
+position = Vector2( 42956.9, 12223 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield151" parent="asteroids2" index="154" instance=ExtResource( 11 )]
+
+position = Vector2( 46138.4, 7791.23 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield163" parent="asteroids2" index="155" instance=ExtResource( 11 )]
+
+position = Vector2( 49371.7, 3290.52 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield80" parent="asteroids2" index="156" instance=ExtResource( 11 )]
+
+position = Vector2( 36770.3, 20825.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield94" parent="asteroids2" index="157" instance=ExtResource( 11 )]
+
+position = Vector2( 33675, 25116 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield101" parent="asteroids2" index="158" instance=ExtResource( 11 )]
+
+position = Vector2( 30677.8, 29367 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield107" parent="asteroids2" index="159" instance=ExtResource( 11 )]
+
+position = Vector2( 27543.4, 33774.8 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield126" parent="asteroids2" index="160" instance=ExtResource( 11 )]
+
+position = Vector2( 24448.2, 38182.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield76" parent="asteroids2" index="161" instance=ExtResource( 11 )]
+
+position = Vector2( 41105.8, 16908.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield118" parent="asteroids2" index="162" instance=ExtResource( 11 )]
+
+position = Vector2( 44239.4, 12647.6 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield161" parent="asteroids2" index="163" instance=ExtResource( 11 )]
+
+position = Vector2( 47420.9, 8215.91 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield182" parent="asteroids2" index="164" instance=ExtResource( 11 )]
+
+position = Vector2( 50654.2, 3715.21 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield79" parent="asteroids2" index="165" instance=ExtResource( 11 )]
+
+position = Vector2( 38052.7, 21250.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield93" parent="asteroids2" index="166" instance=ExtResource( 11 )]
+
+position = Vector2( 34957.5, 25540.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield102" parent="asteroids2" index="167" instance=ExtResource( 11 )]
+
+position = Vector2( 31960.2, 29791.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield105" parent="asteroids2" index="168" instance=ExtResource( 11 )]
+
+position = Vector2( 28825.9, 34199.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield122" parent="asteroids2" index="169" instance=ExtResource( 11 )]
+
+position = Vector2( 25730.6, 38607.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield77" parent="asteroids2" index="170" instance=ExtResource( 11 )]
+
+position = Vector2( 40601.2, 16509.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield121" parent="asteroids2" index="171" instance=ExtResource( 11 )]
+
+position = Vector2( 43734.8, 12248.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield158" parent="asteroids2" index="172" instance=ExtResource( 11 )]
+
+position = Vector2( 46916.3, 7816.46 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield164" parent="asteroids2" index="173" instance=ExtResource( 11 )]
+
+position = Vector2( 50149.6, 3315.75 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield81" parent="asteroids2" index="174" instance=ExtResource( 11 )]
+
+position = Vector2( 37558.7, 20851.1 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield141" parent="asteroids2" index="175" instance=ExtResource( 11 )]
+
+position = Vector2( 40692.3, 16590.2 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield159" parent="asteroids2" index="176" instance=ExtResource( 11 )]
+
+position = Vector2( 43873.8, 12158.5 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield180" parent="asteroids2" index="177" instance=ExtResource( 11 )]
+
+position = Vector2( 47107.1, 7657.77 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield184" parent="asteroids2" index="178" instance=ExtResource( 11 )]
+
+position = Vector2( 50185.1, 3295.02 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield95" parent="asteroids2" index="179" instance=ExtResource( 11 )]
+
+position = Vector2( 34452.9, 25141.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield104" parent="asteroids2" index="180" instance=ExtResource( 11 )]
+
+position = Vector2( 31455.7, 29392.3 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield113" parent="asteroids2" index="181" instance=ExtResource( 11 )]
+
+position = Vector2( 28321.3, 33800 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroidfield120" parent="asteroids2" index="182" instance=ExtResource( 11 )]
+
+position = Vector2( 25226.1, 38207.7 )
+rotation = -0.959931
+_sections_unfolded = [ "Transform" ]
+
+[node name="twinplanets" parent="." index="11" instance=ExtResource( 12 )]
+
+position = Vector2( 33000, 12000 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="twinplanets_msgzone" type="Area2D" parent="." index="12"]
+
+editor/display_folded = true
+position = Vector2( 33087.5, 12115.5 )
+scale = Vector2( -18.8553, -14.7858 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="twinplanets_msgzone" index="0"]
+
+shape = SubResource( 5 )
+
+[connection signal="timeout" from="transition_timer" to="." method="_on_transition_timer_timeout"]
+
+[connection signal="area_entered" from="portal_msgzone" to="." method="_on_portal_msgzone_area_entered"]
+
+[connection signal="area_entered" from="rescues/rescue1_msgzone" to="." method="_on_rescue1_msgzone_area_entered"]
+
+[connection signal="area_entered" from="rescues/rescue2_msgzone" to="." method="_on_rescue2_msgzone_area_entered"]
+
+[connection signal="area_entered" from="rescues/rescue3_msgzone" to="." method="_on_rescue3_msgzone_area_entered"]
+
+[connection signal="area_entered" from="rescues/rescue4_msgzone" to="." method="_on_rescue4_msgzone_area_entered"]
+
+[connection signal="area_entered" from="rescues/rescue5_msgzone" to="." method="_on_rescue5_msgzone_area_entered"]
+
+[connection signal="area_entered" from="twinplanets_msgzone" to="." method="_on_twinplanets_msgzone_area_entered"]
+
+

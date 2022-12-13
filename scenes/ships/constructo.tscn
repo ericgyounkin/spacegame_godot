@@ -1,0 +1,230 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scripts/constructo.gd" type="Script" id=1]
+[ext_resource path="res://art/ships/constructobot_left1.png" type="Texture" id=2]
+[ext_resource path="res://art/ships/constructobot_left2.png" type="Texture" id=3]
+[ext_resource path="res://art/ships/constructobot.png" type="Texture" id=4]
+[ext_resource path="res://art/ships/constructobot_right1.png" type="Texture" id=5]
+[ext_resource path="res://art/ships/constructobot_right2.png" type="Texture" id=6]
+[ext_resource path="res://art/animations/thrust1.png" type="Texture" id=7]
+[ext_resource path="res://art/animations/thrust2.png" type="Texture" id=8]
+[ext_resource path="res://art/animations/thrust3.png" type="Texture" id=9]
+[ext_resource path="res://art/animations/thrust4.png" type="Texture" id=10]
+[ext_resource path="res://scenes/misc/customcamera.tscn" type="PackedScene" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 7.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 7.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+
+custom_solver_bias = 0.0
+radius = 16.9947
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 5.02909
+height = 37.3554
+
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="constructo" type="KinematicBody2D"]
+
+scale = Vector2( 1.5, 1.5 )
+input_pickable = true
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="constructo_left" type="AnimatedSprite" parent="." index="0"]
+
+visible = false
+position = Vector2( 0, -30 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 3
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="constructo_right" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( 0, -30 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 3
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="body_collision" type="CollisionShape2D" parent="." index="2"]
+
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="leftarm_collision" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( -15, -40 )
+shape = SubResource( 4 )
+disabled = true
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="rightarm_collision" type="CollisionShape2D" parent="." index="4"]
+
+position = Vector2( 15, -40 )
+shape = SubResource( 4 )
+disabled = true
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="exhaust" type="AnimatedSprite" parent="." index="5"]
+
+position = Vector2( 0, 17 )
+frames = SubResource( 5 )
+animation = "default"
+frame = 3
+_sections_unfolded = [ "Transform" ]
+
+[node name="weapon1_muzzle" type="Position2D" parent="." index="6"]
+
+position = Vector2( 0, 20 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="weapon2_muzzle" type="Position2D" parent="." index="7"]
+
+position = Vector2( 0, -40 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="customcamera" parent="." index="8" instance=ExtResource( 11 )]
+
+current = true
+zoom = Vector2( 3, 3 )
+limit_left = -3000
+limit_top = -2000
+limit_right = 3000
+limit_bottom = 2000
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+_sections_unfolded = [ "Limit" ]
+
+[node name="weapon_lmb" type="Node" parent="." index="9"]
+
+editor/display_folded = true
+
+[node name="weapon_lmb_timer" type="Timer" parent="weapon_lmb" index="0"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="weapon_rmb" type="Node" parent="." index="10"]
+
+editor/display_folded = true
+
+[node name="weapon_rmb_timer" type="Timer" parent="weapon_rmb" index="0"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="weapon1" type="Node" parent="." index="11"]
+
+editor/display_folded = true
+
+[node name="weapon_container" type="Node" parent="weapon1" index="0"]
+
+[node name="weapon_1_timer" type="Timer" parent="weapon1" index="1"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="weapon2" type="Node" parent="." index="12"]
+
+editor/display_folded = true
+
+[node name="weapon_container" type="Node" parent="weapon2" index="0"]
+
+[node name="weapon_2_timer" type="Timer" parent="weapon2" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="weapon3" type="Node" parent="." index="13"]
+
+editor/display_folded = true
+
+[node name="weapon_container" type="Node" parent="weapon3" index="0"]
+
+[node name="weapon_3_timer" type="Timer" parent="weapon3" index="1"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="weapon4" type="Node" parent="." index="14"]
+
+editor/display_folded = true
+
+[node name="weapon_container" type="Node" parent="weapon4" index="0"]
+
+[node name="weapon_4_timer" type="Timer" parent="weapon4" index="1"]
+
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[node name="transition_timer" type="Timer" parent="." index="15"]
+
+pause_mode = 2
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+_sections_unfolded = [ "Pause" ]
+
+[connection signal="animation_finished" from="constructo_left" to="." method="_on_constructo_left_animation_finished"]
+
+[connection signal="animation_finished" from="constructo_right" to="." method="_on_constructo_right_animation_finished"]
+
+[connection signal="timeout" from="weapon_lmb/weapon_lmb_timer" to="." method="_on_weapon_lmb_timer_timeout"]
+
+[connection signal="timeout" from="weapon_rmb/weapon_rmb_timer" to="." method="_on_weapon_rmb_timer_timeout"]
+
+[connection signal="timeout" from="weapon1/weapon_1_timer" to="." method="_on_weapon_1_timer_timeout"]
+
+[connection signal="timeout" from="weapon2/weapon_2_timer" to="." method="_on_weapon_2_timer_timeout"]
+
+[connection signal="timeout" from="weapon3/weapon_3_timer" to="." method="_on_weapon_3_timer_timeout"]
+
+[connection signal="timeout" from="weapon4/weapon_4_timer" to="." method="_on_weapon_4_timer_timeout"]
+
+[connection signal="timeout" from="transition_timer" to="." method="_on_transition_timer_timeout"]
+
+

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/spacesnailstrike.gd" type="Script" id=1]
+[ext_resource path="res://art/weapons/spacesnailstrike.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( -70, -20, -30, -65, 42, -70, 22, 0, 52, 65, 45, 75, 0, 40, -17, 20 )
+
+[node name="spacesnailstrike" type="Area2D"]
+
+modulate = Color( 1, 1, 1, 0.340721 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="lifetime" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_spacesnailstrike_body_entered"]
+
+[connection signal="timeout" from="lifetime" to="." method="_on_lifetime_timeout"]
+
+
